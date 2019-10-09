@@ -1,8 +1,11 @@
 import React from 'react';
+import MainPanel from './components/MainPanel/MainPanel';
+
+import './App.css'
 
 const App: React.FC = () => {
 	return (
-		<h1>sjdkl</h1>
+		<MainPanel/>
 	);
 }
 

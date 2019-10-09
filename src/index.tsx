@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './store/reducers';
 
-
 import './index.css';
 import App from './App';
 

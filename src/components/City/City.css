@@ -1,0 +1,45 @@
+.city-item {
+	width: 300px;
+	height: 40px;
+	border-radius: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-right: 5px;
+	color: black;
+	transition: all .15s ease;
+	font-weight: bold;
+	border: 2px solid transparent;
+}
+.city-item:hover {
+	background-color: rgba(0, 106, 255, .1);
+	color: rgba(0, 106, 255, 1);
+}
+
+.city-item:hover .city-item__open-info-button {
+	opacity: 1;
+}
+.city-item .city-item__city-name {
+	padding-left: 10px;
+}
+
+.city-item__open-info-button {
+	font-weight: 900;
+	cursor: pointer;
+	background-color: transparent;
+	color: rgba(0, 106, 255, .5);
+	opacity: 0;
+	outline: none;
+	border: 0;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	transition: all .15s ease;
+}
+.city-item__open-info-button:hover {
+	background-color: rgba(0, 106, 255, .85);
+	color: white;
+}
+.city-item__open-info-button:active {
+	background-color: rgba(0, 106, 255, 1);
+}
