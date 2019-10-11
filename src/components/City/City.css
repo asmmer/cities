@@ -43,3 +43,10 @@
 .city-item__open-info-button:active {
 	background-color: rgba(0, 106, 255, 1);
 }
+
+.city-item__open-info-button .icon {
+	transform: rotate(180deg);
+}
+.city-item__open-info-button:hover polyline {
+    stroke: white;
+}
