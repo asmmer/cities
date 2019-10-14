@@ -1,37 +1,27 @@
 export default class CitiesValidation  {
-    UI: any;
     EXCEPTIONS: Array<string> = [
         'ь', 'ы', 'ъ'
     ]
 
-    constructor(UI: any) {
-        if (!UI) {
-            throw 'UI agrument is empty.';
-        }
-        
-        this.UI = UI;
-    }
-
-    findCity = (playerCity: string, cities: Array<object>, resultCities: Array<string>)  => {
-        if (!playerCity || !cities || !resultCities) {
-            throw 'Invalid data for this function call.';
-        }
-
-        const searchResult = cities.filter(({ city }: any) => city.toLowerCase().trim() == playerCity.toLowerCase().trim());
+    findCity = (playerCity: string, cities: Array<object>, resultCities: Array<string>) => {
+        const searchResult = cities.filter(({ city }: any) => city.toLowerCase().trim() === playerCity.toLowerCase().trim());
 
         if (searchResult.length === 0) {
-            return alert(`${this.UI.errors.cityIsNotFound}`);
+            // return alert(`${UI.errors.cityIsNotFound}`);
+            return;
         }
 
         const { city }: any = searchResult[0];
 
         if (resultCities.includes(city)) {
-            return alert(`${this.UI.errors.cityInList}`);
+            // return alert(`${this.UI.errors.cityInList}`);
+            return;
         }
 
         if (resultCities.length > 0) {
             if (!this.checkAnswer(city, resultCities)) {
-                return alert(`${this.UI.errors.answerIsInvalid}`);
+                // return alert(`${this.UI.errors.answerIsInvalid}`);
+                return;
             }
         }
 

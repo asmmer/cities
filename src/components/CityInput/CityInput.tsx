@@ -2,15 +2,29 @@ import React, { FormEvent, ChangeEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './CityInput.css';
-import { cityInputTextChange, addCity } from '../../store/app/actions';
+import { cityInputTextChange, setCities } from '../../store/app/actions';
+import CitiesValidation from '../../cities-validation';
 
 const CityInput: React.FC = () => {
 	const dispatch = useDispatch();
-	const cityInput = useSelector((state: any) => state.app.cityInput);
+	const { cityInput, cities, resultCities } = useSelector((state: any) => state.app);
+
+	const citiesValidation = new CitiesValidation();
 
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
-		dispatch(addCity(cityInput));
+
+		const playerCity = cityInput;
+		if (playerCity === '') {
+			return;
+		}
+
+        const result = citiesValidation.findCity(playerCity, cities, resultCities);
+        if (result) {
+            const { resultCities, tip } = result;
+			dispatch(setCities(resultCities));
+            // setTip(tip);
+        }
 		dispatch(cityInputTextChange(''));
 	}
 
@@ -33,6 +47,7 @@ const CityInput: React.FC = () => {
 			<button
 				className="city-input-container__enter" 
 				type="submit"
+				disabled={!cityInput}
 			>Enter</button>
 		</form>
 	);

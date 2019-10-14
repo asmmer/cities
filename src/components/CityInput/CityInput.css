@@ -43,5 +43,9 @@
 	background-color: rgb(0, 89, 214);
 	color: white;
 }
+.city-input-container .city-input-container__enter:disabled {
+	cursor: default;
+	background-color: rgba(0, 89, 214, .2);
+}
 
 
