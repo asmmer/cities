@@ -22,6 +22,10 @@
 	border: 2px solid rgba(0, 106, 255, 1);
 	color: rgba(0, 106, 255, 1);
 }
+.city-input-container .city-input-container__input::placeholder {
+	color: rgba(0, 106, 255, .2);
+}
+
 
 .city-input-container .city-input-container__enter {
 	margin: 0 1%;

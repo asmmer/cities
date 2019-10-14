@@ -1,6 +1,6 @@
 import IAction from "../interfaces";
 
-import { CITY_INPUT_TEXT_CHANGE, SET_CITIES } from "./actions";
+import { CITY_INPUT_TEXT_CHANGE, SET_CITIES, SET_TIP } from "./actions";
 import { LOCATIONS, UI } from "../../constants";
 
 const getDefaultLocation = () => LOCATIONS.RU;
@@ -34,6 +34,12 @@ export const appReducer = (state = initialState, action: IAction) => {
             return {
                 ...state,
                 resultCities: [...action.payload]
+            }
+        }
+        case SET_TIP: {
+            return {
+                ...state,
+                tip: action.payload
             }
         }
         default: {
