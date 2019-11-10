@@ -1,0 +1,22 @@
+.top-panel {
+    display: flex;
+    align-items: center;
+}
+
+.top-panel .top-panel__project-name {
+    display: inline;
+}
+
+.top-panel .simple-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    width: 44px;
+    height: 44px;
+    margin: 0 1% 0 0;
+}
+
+.top-panel .simple-button svg {
+    fill: white;
+}

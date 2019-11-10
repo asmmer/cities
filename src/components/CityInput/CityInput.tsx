@@ -1,9 +1,11 @@
 import React, { FormEvent, ChangeEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import './CityInput.css';
 import { cityInputTextChange, setCities, setTip } from '../../store/app/actions';
 import CitiesValidation from '../../cities-validation';
+import Button from '../Button/Button';
+
+import './CityInput.css';
 
 const CityInput: React.FC = () => {
 	const dispatch = useDispatch();
@@ -45,11 +47,14 @@ const CityInput: React.FC = () => {
 				type="text"
 				placeholder={UIDictionary.inputCity.inputCityHere}
 			/>
-			<button
-				className="city-input-container__enter" 
+			<Button
 				type="submit"
 				disabled={!cityInput}
-			>{UIDictionary.inputCity.enterCity}</button>
+			>
+				<span>
+					{UIDictionary.inputCity.enterCity}
+				</span>
+			</Button>
 		</form>
 	);
 }

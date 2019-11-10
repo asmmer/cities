@@ -26,7 +26,6 @@
 	color: rgba(0, 106, 255, .2);
 }
 
-
 .city-input-container .city-input-container__enter {
 	margin: 0 1%;
 	padding: 0 1%;
@@ -51,5 +50,3 @@
 	cursor: default;
 	background-color: rgba(0, 89, 214, .2);
 }
-
-
