@@ -1,7 +1,6 @@
 import React from 'react';
 import './City.css';
 import CollapseIcon from '../Icons/CollapseIcon';
-import Button from '../Button/Button';
 
 interface ICity {
 	cityName: string;

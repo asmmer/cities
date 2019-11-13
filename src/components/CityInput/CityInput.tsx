@@ -1,11 +1,14 @@
 import React, { FormEvent, ChangeEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { cityInputTextChange, setCities, setTip } from '../../store/app/actions';
+import { cityInputTextChange, setCities, setTip, clearCities } from '../../store/app/actions';
 import CitiesValidation from '../../cities-validation';
+
 import Button from '../Button/Button';
+import RestartIcon from '../Icons/RestartIcon';
 
 import './CityInput.css';
+
 
 const CityInput: React.FC = () => {
 	const dispatch = useDispatch();
@@ -30,6 +33,11 @@ const CityInput: React.FC = () => {
 		dispatch(cityInputTextChange(''));
 	}
 
+    const handleRestartClick = (): void => {
+        dispatch(setTip(''));
+        dispatch(clearCities());
+    };
+
 	const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { target } = e;	
 		dispatch(cityInputTextChange(target.value));
@@ -40,6 +48,13 @@ const CityInput: React.FC = () => {
 			className="city-input-container"
 			onSubmit={handleSubmit}
 		>
+			<Button
+				type="button"
+				disabled={!resultCities.length}
+				onClick={handleRestartClick}
+			>
+				<RestartIcon/>
+			</Button>
 			<input
 				className="city-input-container__input" 
 				onChange={handleTextChange}

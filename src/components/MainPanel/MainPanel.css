@@ -1,6 +1,11 @@
 .main-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
     padding: 10px;
-    margin: 0 auto;
     height: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
     width: 1080px;
 }
