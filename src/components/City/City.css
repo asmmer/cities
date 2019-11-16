@@ -1,14 +1,14 @@
 .city-item {
-	width: 300px;
-	height: 40px;
+	/* width: 300px;
+	height: 40px; */
 	border-radius: 50px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	padding-right: 5px;
+	padding: 5px;
 	color: black;
-	transition: all .15s ease;
+	transition: background-color .15s ease;
 	font-weight: bold;
 	border: 2px solid transparent;
 }
@@ -24,6 +24,10 @@
 	padding-left: 10px;
 }
 
+.city-item__expanded {
+	border-radius: 15px;
+}
+
 .city-item__top-panel {
 	width: 100%;
 	display: flex;
@@ -32,7 +36,8 @@
 }
 
 .city-item__info-panel {
-	height: 300px;
+	padding: 10px;
+	font-weight: normal;
 }
 
 .city-item__open-info-button {

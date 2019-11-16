@@ -10,9 +10,9 @@ interface ICity {
 
 const City: React.FC<ICity> = (props) => {
 	const { cityNumber, cityName } = props;
-	const [isOpened, setIsOpened] = useState(false);
 
-	let resultSnippet;
+	const [isOpened, setIsOpened] = useState(false);
+	const [cityInfo, setCityInfo] = useState();
 
 	const handleCollapseClick = () => setIsOpened(!isOpened);
 
@@ -20,13 +20,15 @@ const City: React.FC<ICity> = (props) => {
 	fetch(endpoint)
 		.then(response => response.json())
 		.then(data => {
-			const results = data.query.search;
-			resultSnippet = results[0].snippet;
-			console.log(resultSnippet);
+			const _data = `<span>${data.query.search.shift().snippet}</span>`;
+			console.log(_data);
+			const result = new DOMParser().parseFromString(_data, "text/xml").firstChild;
+			console.log(result);
+			setCityInfo(result);
 		})
 		.catch(() => console.log('An error occurred'));
 
-	return <article className="city-item">
+	return <article className={`city-item ${isOpened && 'city-item__expanded'}`}>
 		<section className="city-item__top-panel">
 			<span className="city-item__city-name">
 				{`${cityNumber}. ${cityName}`}
@@ -40,7 +42,9 @@ const City: React.FC<ICity> = (props) => {
 		</section>
 		{
 			(isOpened) && <section className="city-item__info-panel">
-				{resultSnippet}
+				{
+					`${cityInfo.textContent}...`
+				}
 			</section>
 		}
 
