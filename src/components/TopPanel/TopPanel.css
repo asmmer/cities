@@ -1,13 +1,23 @@
 .top-panel {
+    background-color: white;
     top: 0;
     position: fixed;
     height: 50px;
-    width: 100%;
+    width: 1080px;
     display: flex;
     align-items: center;
+    z-index: 10;
+    padding: 16px;
+}
+
+@media (max-width: 1080px) { 
+    .top-panel {
+        width: 100%;
+        margin: 0 auto;
+    }
 }
 
 .top-panel .top-panel__project-name {
-    margin: 0 auto;
-    width: 1080px;
+    font-weight: bolder;
+    font-size: 32px;
 }

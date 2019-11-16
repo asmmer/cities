@@ -20,7 +20,7 @@ interface IInitialState {
 
 const initialState: IInitialState = {
     cities: require(`../../cities/${location}.json`),
-    resultCities: [],
+    resultCities: ['А','А','А','А','А','А','А','А','А','А','А','А','А',],
     UIDictionary: (location === LOCATIONS.RU) ? UI.RU : UI.US,
     tip: '',
     cityInput: ''

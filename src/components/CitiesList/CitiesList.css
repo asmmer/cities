@@ -1,4 +1,6 @@
 .cities-list {
     height: 100%;
-    padding: 0;
+    padding: 10px;
+    margin: 0;
+    /* overflow-y: scroll; */
 }

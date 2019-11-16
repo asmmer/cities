@@ -8,6 +8,7 @@ import Button from '../Button/Button';
 import RestartIcon from '../Icons/RestartIcon';
 
 import './CityInput.css';
+import DoneIcon from '../Icons/DoneIcon';
 
 
 const CityInput: React.FC = () => {
@@ -66,9 +67,7 @@ const CityInput: React.FC = () => {
 				type="submit"
 				disabled={!cityInput}
 			>
-				<span>
-					{UIDictionary.inputCity.enterCity}
-				</span>
+				<DoneIcon/>
 			</Button>
 		</form>
 	);

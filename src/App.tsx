@@ -5,11 +5,9 @@ import TopPanel from './components/TopPanel/TopPanel';
 
 import './App.css'
 
-const App: React.FC = () => {
-	return (<>
-		<TopPanel/>
-		<MainPanel/>
-	</>);
-}
+const App: React.FC = () => <>
+	<TopPanel/>
+	<MainPanel/>
+</>
 
 export default App;

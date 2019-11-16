@@ -6,16 +6,12 @@ import CityInput from '../CityInput/CityInput';
 import Tip from '../Tip/Tip';
 
 const MainPanel: React.FC = () => {
-    const cities = ['New York', 'Detroit', 'San-Francisco'];
-
-	return (
-		<main className="main-panel">
-            {/* HELP BUTTON */}
-            <CitiesList cities={cities}/>
-            <Tip/>
-            <CityInput/>
-        </main>
-	);
+    return <main className="main-panel">
+        {/* HELP BUTTON */}
+        <CitiesList />
+        <Tip />
+        <CityInput />
+    </main>;
 }
 
 export default MainPanel;

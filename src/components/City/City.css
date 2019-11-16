@@ -4,7 +4,8 @@
 	border-radius: 50px;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
+	flex-direction: column;
 	padding-right: 5px;
 	color: black;
 	transition: all .15s ease;
@@ -21,6 +22,17 @@
 }
 .city-item .city-item__city-name {
 	padding-left: 10px;
+}
+
+.city-item__top-panel {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.city-item__info-panel {
+	height: 300px;
 }
 
 .city-item__open-info-button {

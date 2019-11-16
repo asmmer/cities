@@ -1,15 +1,20 @@
-import React from 'react';
-import './City.css';
+import React, { useState } from 'react';
 import CollapseIcon from '../Icons/CollapseIcon';
 
+import './City.css';
+
 interface ICity {
+	cityNumber: number;
 	cityName: string;
 }
 
 const City: React.FC<ICity> = (props) => {
-	const { cityName } = props;
+	const { cityNumber, cityName } = props;
+	const [isOpened, setIsOpened] = useState(false);
 
 	let resultSnippet;
+
+	const handleCollapseClick = () => setIsOpened(!isOpened);
 
 	const endpoint = `https://ru.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=${cityName}`;
 	fetch(endpoint)
@@ -21,18 +26,25 @@ const City: React.FC<ICity> = (props) => {
 		})
 		.catch(() => console.log('An error occurred'));
 
-	return (
-		<div className="city-item">
-			<span className="city-item__city-name">{cityName}</span>
-			<button className="city-item__open-info-button">
+	return <article className="city-item">
+		<section className="city-item__top-panel">
+			<span className="city-item__city-name">
+				{`${cityNumber}. ${cityName}`}
+			</span>
+			<button
+				className="city-item__open-info-button"
+				onClick={handleCollapseClick}
+			>
 				<CollapseIcon />
 			</button>
-			{/* INFO PANEL */}
-			<section>
+		</section>
+		{
+			(isOpened) && <section className="city-item__info-panel">
 				{resultSnippet}
 			</section>
-		</div>
-	);
+		}
+
+	</article>;
 }
 
 export default City;
