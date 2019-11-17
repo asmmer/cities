@@ -3,25 +3,22 @@ import IAction from "../interfaces";
 import { 
     CITY_INPUT_TEXT_CHANGE,
     SET_CITIES, SET_TIP,
-    CLEAR_CITIES
+    CLEAR_CITIES,
+    SET_OPENED_CITY
 } from "./actions";
-import { LOCATIONS, UI } from "../../constants";
-
-const getDefaultLocation = () => LOCATIONS.RU;
-let location = localStorage.getItem('location') || getDefaultLocation();
 
 interface IInitialState {
     cities: Array<object>;
     resultCities: Array<string>;
-    UIDictionary: any;
+    openedCity: null | number;
     tip: string;
     cityInput: string;
 }
 
 const initialState: IInitialState = {
-    cities: require(`../../cities/${location}.json`),
+    cities: require(`../../cities/RU.json`),
     resultCities: [],
-    UIDictionary: (location === LOCATIONS.RU) ? UI.RU : UI.US,
+    openedCity: null,
     tip: '',
     cityInput: ''
 }
@@ -44,6 +41,12 @@ export const appReducer = (state = initialState, action: IAction) => {
             return {
                 ...state,
                 resultCities: []
+            }
+        }
+        case SET_OPENED_CITY: {
+            return {
+                ...state,
+                openedCity: action.payload
             }
         }
         case SET_TIP: {

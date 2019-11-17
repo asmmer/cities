@@ -1,22 +1,22 @@
-import React, { FormEvent, ChangeEvent } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { FormEvent } from 'react';
 
-import { cityInputTextChange, setCities, setTip, clearCities } from '../../store/app/actions';
 import CitiesValidation from '../../cities-validation';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { cityInputTextChange, setCities, setTip, clearCities } from '../../store/app/actions';
 
 import Button from '../Button/Button';
 import RestartIcon from '../Icons/RestartIcon';
-
-import './CityInput.css';
 import DoneIcon from '../Icons/DoneIcon';
 
+import './CityInput.css';
+
+const citiesValidation = new CitiesValidation();
 
 const CityInput: React.FC = () => {
 	const dispatch = useDispatch();
-	const { cityInput, cities, resultCities, UIDictionary } = useSelector((state: any) => state.app);
-
-	const citiesValidation = new CitiesValidation();
-
+	const { cityInput, cities, resultCities } = useSelector((state: any) => state.app);
+	
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
 
@@ -61,7 +61,7 @@ const CityInput: React.FC = () => {
 				onChange={handleTextChange}
 				value={cityInput}
 				type="text"
-				placeholder={UIDictionary.inputCity.inputCityHere}
+				placeholder="Введите свой город здесь..."
 			/>
 			<Button
 				type="submit"
