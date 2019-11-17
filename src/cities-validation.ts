@@ -1,6 +1,6 @@
 export default class CitiesValidation  {
     EXCEPTIONS: Array<string> = [
-        'ь', 'ы', 'ъ'
+        'й', 'ь', 'ы', 'ъ'
     ]
 
     findCity = (playerCity: string, cities: Array<object>, resultCities: Array<string>) => {

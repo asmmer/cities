@@ -44,7 +44,7 @@ const City: React.FC<ICity> = (props) => {
 			</button>
 		</section>
 		{
-			(isOpened) && <section className="city-item__info-panel">
+			(isOpened && cityInfo.textContent) && <section className="city-item__info-panel">
 				{
 					`${cityInfo.textContent}...`
 				}
