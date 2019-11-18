@@ -11,7 +11,7 @@ interface IInitialState {
     cities: Array<object>;
     resultCities: Array<string>;
     openedCity: null | number;
-    tip: string;
+    tipText: string;
     cityInput: string;
 }
 
@@ -19,7 +19,7 @@ const initialState: IInitialState = {
     cities: require(`../../cities/RU.json`),
     resultCities: [],
     openedCity: null,
-    tip: '',
+    tipText: '',
     cityInput: ''
 }
 
@@ -52,7 +52,7 @@ export const appReducer = (state = initialState, action: IAction) => {
         case SET_TIP: {
             return {
                 ...state,
-                tip: action.payload
+                tipText: action.payload
             }
         }
         default: {

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import CollapseIcon from '../Icons/CollapseIcon';
 
-import './City.css';
 import { useDispatch } from 'react-redux';
 import { setOpenedCity } from '../../store/app/actions';
+
+import Icon from '../Icons/Icon';
+
+import './City.css';
 
 interface ICity {
 	cityNumber: number;
@@ -40,11 +42,11 @@ const City: React.FC<ICity> = (props) => {
 				className="city-item__open-info-button"
 				onClick={handleCollapseClick}
 			>
-				<CollapseIcon />
+				<Icon type="collapse"/>
 			</button>
 		</section>
 		{
-			(isOpened && cityInfo.textContent) && <section className="city-item__info-panel">
+			(isOpened && cityInfo) && <section className="city-item__info-panel">
 				{
 					`${cityInfo.textContent}...`
 				}

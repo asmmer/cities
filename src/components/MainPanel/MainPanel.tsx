@@ -1,15 +1,22 @@
 import React from 'react';
-import './MainPanel.css';
+
+import { useSelector } from 'react-redux';
 
 import CitiesList from '../CitiesList/CitiesList';
-import CityInput from '../CityInput/CityInput';
 import Tip from '../Tip/Tip';
+import CityInput from '../CityInput/CityInput';
+
+import './MainPanel.css';
 
 const MainPanel: React.FC = () => {
+    const { tipText } = useSelector((state: any) => state.app); 
+
     return <main className="main-panel">
         {/* HELP BUTTON */}
         <CitiesList />
-        <Tip />
+        {
+            tipText && <Tip tipText={tipText}/>
+        }
         <CityInput />
     </main>;
 }

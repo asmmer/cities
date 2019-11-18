@@ -6,8 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { cityInputTextChange, setCities, setTip, clearCities } from '../../store/app/actions';
 
 import Button from '../Button/Button';
-import RestartIcon from '../Icons/RestartIcon';
-import DoneIcon from '../Icons/DoneIcon';
+import Icon from '../Icons/Icon';
 
 import './CityInput.css';
 
@@ -54,7 +53,7 @@ const CityInput: React.FC = () => {
 				disabled={!resultCities.length}
 				onClick={handleRestartClick}
 			>
-				<RestartIcon/>
+				<Icon type="restart"/>
 			</Button>
 			<input
 				className="city-input-container__input" 
@@ -67,7 +66,7 @@ const CityInput: React.FC = () => {
 				type="submit"
 				disabled={!cityInput}
 			>
-				<DoneIcon/>
+				<Icon type="done"/>
 			</Button>
 		</form>
 	);
