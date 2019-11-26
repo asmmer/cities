@@ -1,0 +1,23 @@
+.simple-input {
+	flex: 1 0;
+	padding: 0 10px;
+	height: 40px;
+	border-radius: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-right: 5px;
+	color: rgba(0, 106, 255, .3);
+	font-weight: bold;
+	border: 2px solid rgba(0, 106, 255, .3);
+	outline: none;
+	transition: all .15s ease;
+}
+.simple-input:focus {
+	background-color: rgba(0, 106, 255, .1);
+	border: 2px solid rgba(0, 106, 255, 1);
+	color: rgba(0, 106, 255, 1);
+}
+.simple-input::placeholder {
+	color: rgba(0, 106, 255, .2);
+}

@@ -1,0 +1,18 @@
+.city-input-container {
+	display: flex;
+	padding: 10px;
+}
+
+.city-input-container .simple-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    width: 44px;
+    height: 44px;
+    margin: 0 1%;
+}
+
+.city-input-container .simple-button svg {
+    fill: white;
+}

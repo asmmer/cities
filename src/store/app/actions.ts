@@ -1,4 +1,5 @@
 import IAction from "../interfaces";
+import { Message } from "../../helpers/messages";
 
 export const CITY_INPUT_TEXT_CHANGE = 'CITY_INPUT_TEXT_CHANGE';
 export const SET_CITIES = 'SET_CITIES';
@@ -25,7 +26,7 @@ export const clearCities = (): IAction => ({
     type: CLEAR_CITIES
 });
 
-export const setTip = (tip: string): IAction => ({
+export const setTip = (message: Message): IAction => ({
     type: SET_TIP,
-    payload: tip
+    payload: message
 });

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
-import { setOpenedCity } from '../../store/app/actions';
+import { setOpenedCity } from '../../../store/app/actions';
 
-import Icon from '../Icons/Icon';
+import Icon from '../../basic/Icons/Icon';
 
 import './City.css';
 
@@ -13,8 +13,7 @@ interface ICity {
 	isOpened: boolean;
 }
 
-const City: React.FC<ICity> = (props) => {
-	const { cityNumber, cityName, isOpened } = props;
+const City: React.FC<ICity> = ({ cityNumber, cityName, isOpened }) => {
 	const [cityInfo, setCityInfo] = useState();
 
 	const dispatch = useDispatch();

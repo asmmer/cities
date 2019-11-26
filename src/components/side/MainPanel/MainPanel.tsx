@@ -9,13 +9,13 @@ import CityInput from '../CityInput/CityInput';
 import './MainPanel.css';
 
 const MainPanel: React.FC = () => {
-    const { tipText } = useSelector((state: any) => state.app); 
+    const { tip } = useSelector((state: any) => state.app); 
 
     return <main className="main-panel">
         {/* HELP BUTTON */}
         <CitiesList />
         {
-            tipText && <Tip tipText={tipText}/>
+            tip && <Tip message={tip}/>
         }
         <CityInput />
     </main>;

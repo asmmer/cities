@@ -1,7 +1,7 @@
 import React from 'react';
 
-import MainPanel from './components/MainPanel/MainPanel';
-import TopPanel from './components/TopPanel/TopPanel';
+import MainPanel from './components/side/MainPanel/MainPanel';
+import TopPanel from './components/side/TopPanel/TopPanel';
 
 import './App.css'
 

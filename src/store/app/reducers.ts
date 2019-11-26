@@ -6,12 +6,13 @@ import {
     CLEAR_CITIES,
     SET_OPENED_CITY
 } from "./actions";
+import { Message, MessageType } from "../../helpers/messages";
 
 interface IInitialState {
     cities: Array<object>;
     resultCities: Array<string>;
     openedCity: null | number;
-    tipText: string;
+    tip: Message;
     cityInput: string;
 }
 
@@ -19,7 +20,10 @@ const initialState: IInitialState = {
     cities: require(`../../cities/RU.json`),
     resultCities: [],
     openedCity: null,
-    tipText: '',
+    tip: {
+        type: MessageType.INFO,
+        text: ''
+    },
     cityInput: ''
 }
 
@@ -40,7 +44,8 @@ export const appReducer = (state = initialState, action: IAction) => {
         case CLEAR_CITIES: {
             return {
                 ...state,
-                resultCities: []
+                resultCities: [],
+                openedCity: null
             }
         }
         case SET_OPENED_CITY: {
@@ -52,7 +57,7 @@ export const appReducer = (state = initialState, action: IAction) => {
         case SET_TIP: {
             return {
                 ...state,
-                tipText: action.payload
+                tip: action.payload
             }
         }
         default: {
