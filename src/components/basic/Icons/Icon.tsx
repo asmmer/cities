@@ -1,29 +1,26 @@
 import React from 'react';
 
-import './Icon.css';
-
 interface IIcon {
     type: "collapse" | "done" | "restart";
 }
 
 const Icon: React.FC<IIcon> = ({ type }) => <>
     {
-        type === "collapse" && <span className="collapce-icon">
-            <svg
+        type === "collapse" && <svg
+                className="collapce-icon"
                 enableBackground="new 0 0 24 24"
                 id="Layer_1"
                 version="1.0"
                 viewBox="0 0 24 24"
-            >
-                <polyline
-                    fill="none"
-                    points="3,15.5 12,6.5 21,15.5"
-                    stroke="#000000"
-                    strokeMiterlimit="10"
-                    strokeWidth="2"
-                />
-            </svg>
-        </span>
+        >
+            <polyline
+                fill="none"
+                points="3,15.5 12,6.5 21,15.5"
+                stroke="#000000"
+                strokeMiterlimit="10"
+                strokeWidth="2"
+            />
+        </svg>
     }
     {
         type === "done" && <svg

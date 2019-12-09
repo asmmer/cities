@@ -1,15 +1,15 @@
 import React from 'react';
 
-import './Input.css';
+import './Input.scss';
 
-type InputProps = {
+interface IInput {
     value?: string;
     placeholder?: string;
     disabled?: boolean;
     onChange?: any;
 }
 
-const Input: React.FC<InputProps> = ({ value, placeholder, disabled, onChange }) => <input
+const Input: React.FC<IInput> = ({ value, placeholder, disabled, onChange }) => <input
     className="simple-input"
     type="text"
     value={value}

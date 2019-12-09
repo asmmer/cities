@@ -1,0 +1,27 @@
+@import '../../styles/colors.scss';
+
+.simple-input {
+	flex: 1 0;
+	padding: 0 10px;
+	height: 40px;
+	border-radius: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-right: 5px;
+	color: rgba($main-color, .3);
+	font-weight: bold;
+	border: 2px solid rgba($main-color, .3);
+	outline: none;
+	transition: all .15s ease;
+
+	&:focus {
+		background-color: rgba($main-color, .1);
+		border: 2px solid rgba($main-color, 1);
+		color: rgba($main-color, 1);
+	}
+
+	&::placeholder {
+		color: rgba($main-color, .2);
+	}
+}

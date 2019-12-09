@@ -1,6 +1,0 @@
-.collapce-icon svg {
-    transform: rotate(180deg);
-}
-.collapce-icon .active svg {
-    transform: rotate(0deg);
-}

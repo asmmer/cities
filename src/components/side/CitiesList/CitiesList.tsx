@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import { useSelector } from 'react-redux';
 
 import City from '../City/City';
 import CitiesListPlaceholder from '../СitiesListPlaceholder/СitiesListPlaceholder';
 
-import './CitiesList.css';
+import './CitiesList.scss';
 
 const CitiesList: React.FC = () => {
 	const resultCities: Array<string> = useSelector((state: any) => state.app.resultCities);
@@ -18,15 +19,23 @@ const CitiesList: React.FC = () => {
 	return <>
 		{
 			resultCities.length ? <ul className="cities-list">
-			{
-				resultCities.map((city, index) => <City
-					key={index}
-					cityNumber={index + 1}
-					cityName={city}
-					isOpened={!!(openedCity === index + 1)}
-				/>)
-			}
-			</ul> : <CitiesListPlaceholder/>
+				<TransitionGroup>
+					{
+						resultCities.map((city, index) => <CSSTransition
+							key={index}
+							timeout={300}
+							classNames="cities-list-item__fade"
+						>
+							<City
+								key={index}
+								cityNumber={index + 1}
+								cityName={city}
+								isOpened={!!(openedCity === index + 1)}
+							/>
+						</CSSTransition>
+						)}
+				</TransitionGroup>
+			</ul> : <CitiesListPlaceholder />
 		}
 	</>
 }

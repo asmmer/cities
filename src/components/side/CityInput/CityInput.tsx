@@ -8,9 +8,10 @@ import { cityInputTextChange, setCities, setTip, clearCities } from '../../../st
 import Button from '../../basic/Button/Button';
 import Icon from '../../basic/Icons/Icon';
 
-import './CityInput.css';
 import Input from '../../basic/Input/Input';
 import { MessageType, Message } from '../../../helpers/messages';
+
+import './CityInput.scss';
 
 const citiesValidation = new CitiesValidation();
 
@@ -27,7 +28,7 @@ const CityInput: React.FC = () => {
 		}
 
 		const result: any = citiesValidation.findCity(playerCity, cities, resultCities);
-		const isSuccessCity: boolean = result.message.type === MessageType.INFO;
+		const isSuccessCity: boolean = result.message.type === MessageType.SUCCESS;
 
 		if (isSuccessCity) {
 			const { resultCities, message } = result;
@@ -43,12 +44,13 @@ const CityInput: React.FC = () => {
 
 	const handleRestartClick = (): void => {
 		const message: Message = {
-			type: MessageType.INFO,
+			type: MessageType.EMPTY,
 			text: ''
 		}
 
 		dispatch(setTip(message));
 		dispatch(clearCities());
+		dispatch(cityInputTextChange(''));
 	};
 
 	const handleTextChange = ({ target }: any) => dispatch(cityInputTextChange(target.value));

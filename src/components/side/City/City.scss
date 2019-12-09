@@ -1,0 +1,79 @@
+@import '../../styles/colors.scss';
+
+.city-item {
+	width: fit-content;
+	border-radius: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 5px;
+	color: black;
+	transition: background-color .15s ease;
+	font-weight: bold;
+	border: 2px solid transparent;
+
+	.city-item__top-panel {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.city-item__city-name {
+			padding-left: 10px;
+		}
+
+		.city-item__open-info-button {
+			font-weight: 900;
+			cursor: pointer;
+			background-color: transparent;
+			color: rgba(0, 106, 255, .5);
+			opacity: 0;
+			outline: none;
+			border: 0;
+			margin-left: 30px;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+		
+			&:hover {
+				background-color: rgba(0, 106, 255, .85);
+				color: white;
+		
+				polyline {
+					stroke: white;
+				}
+			}
+		
+			&:active {
+				background-color: rgba(0, 106, 255, 1);
+			}
+
+			.collapce-icon {
+				transform: rotate(180deg);
+			}		
+		}
+
+		.is-expanded-icon {
+			transform: rotate(-180deg);
+		}
+	}
+	
+	.city-item__info-panel {
+		padding: 10px;
+		font-weight: normal;
+	}
+
+	&:hover {
+		background-color: rgba(0, 106, 255, .1);
+		color: rgba(0, 106, 255, 1);
+
+		.city-item__open-info-button {
+			opacity: 1;
+		}
+	}
+}
+
+.is-expanded {
+	border-radius: 15px;
+}

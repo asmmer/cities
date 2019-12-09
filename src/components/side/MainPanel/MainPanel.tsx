@@ -6,7 +6,7 @@ import CitiesList from '../CitiesList/CitiesList';
 import Tip from '../Tip/Tip';
 import CityInput from '../CityInput/CityInput';
 
-import './MainPanel.css';
+import './MainPanel.scss';
 
 const MainPanel: React.FC = () => {
     const { tip } = useSelector((state: any) => state.app); 

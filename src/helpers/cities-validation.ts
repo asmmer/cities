@@ -59,7 +59,7 @@ export default class CitiesValidation {
                 answer
             ],
             message: {
-                type: MessageType.INFO,
+                type: MessageType.SUCCESS,
                 text: this.getTip(answer)
             }
         }

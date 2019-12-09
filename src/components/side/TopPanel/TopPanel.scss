@@ -8,6 +8,11 @@
     align-items: center;
     z-index: 10;
     padding: 16px;
+
+    .top-panel__project-name {
+        font-weight: bolder;
+        font-size: 32px;
+    }
 }
 
 @media (max-width: 1080px) { 
@@ -15,9 +20,4 @@
         width: 100%;
         margin: 0 auto;
     }
-}
-
-.top-panel .top-panel__project-name {
-    font-weight: bolder;
-    font-size: 32px;
 }

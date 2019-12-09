@@ -1,9 +1,10 @@
 export enum MessageType {
-    INFO,
-    ERROR
+    SUCCESS,
+    ERROR,
+    EMPTY
 };
 
 export interface Message {
-    type: MessageType.INFO | MessageType.ERROR;
+    type: MessageType.SUCCESS | MessageType.ERROR | MessageType.EMPTY;
     text: string;
 };

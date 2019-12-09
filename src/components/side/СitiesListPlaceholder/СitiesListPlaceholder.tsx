@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './СitiesListPlaceholder.css';
+import './СitiesListPlaceholder.scss';
 
 const СitiesListPlaceholder: React.FC = () => <section className="cities-list__placeholder">
     <section className="cities-list__placeholder__header">

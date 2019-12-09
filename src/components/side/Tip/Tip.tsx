@@ -1,7 +1,7 @@
 import React from 'react';
 import { Message, MessageType } from '../../../helpers/messages';
 
-import './Tip.css';
+import './Tip.scss';
 
 interface ITip {
     message: Message;

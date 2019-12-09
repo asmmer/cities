@@ -21,7 +21,7 @@ const initialState: IInitialState = {
     resultCities: [],
     openedCity: null,
     tip: {
-        type: MessageType.INFO,
+        type: MessageType.EMPTY,
         text: ''
     },
     cityInput: ''

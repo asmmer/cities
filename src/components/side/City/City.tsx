@@ -5,7 +5,7 @@ import { setOpenedCity } from '../../../store/app/actions';
 
 import Icon from '../../basic/Icons/Icon';
 
-import './City.css';
+import './City.scss';
 
 interface ICity {
 	cityNumber: number;
@@ -32,13 +32,13 @@ const City: React.FC<ICity> = ({ cityNumber, cityName, isOpened }) => {
 			});
 	}, [cityName])
 
-	return <article className={`city-item ${isOpened && 'city-item__expanded'}`}>
+	return <article className={`city-item${isOpened ? ' is-expanded' : ''}`}>
 		<section className="city-item__top-panel">
 			<span className="city-item__city-name">
 				{`${cityNumber}. ${cityName}`}
 			</span>
 			<button
-				className="city-item__open-info-button"
+				className={`city-item__open-info-button${isOpened ? ' is-expanded-icon' : ''}`}
 				onClick={handleCollapseClick}
 			>
 				<Icon type="collapse"/>
