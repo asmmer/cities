@@ -1,12 +1,12 @@
-import { Message, MessageType } from "./messages";
+import { IMessage, MessageType, MESSAGES } from "./messages";
 
 export interface foundCities {
     resultCities: Array<string>;
-    message: Message;
+    message: IMessage;
 }
 
 interface invalidResult {
-    message: Message;
+    message: IMessage;
 }
 
 export default class CitiesValidation {
@@ -21,10 +21,7 @@ export default class CitiesValidation {
 
         if (!searchResult) {
             return {
-                message: {
-                    type: MessageType.ERROR,
-                    text: "Такого города не было найдено!"
-                }
+                message: MESSAGES.CITY_ISNT_EXISTS
             };
         }
 
@@ -32,20 +29,14 @@ export default class CitiesValidation {
 
         if (resultCities.includes(city)) {
             return {
-                message: {
-                    type: MessageType.ERROR,
-                    text: "Такой город был уже угадан!"
-                }
+                message: MESSAGES.CITY_IS_IN_THE_LIST
             };
         }
 
         if (resultCities.length) {
             if (!this.checkAnswer(city, resultCities)) {
                 return {
-                    message: {
-                        type: MessageType.ERROR,
-                        text: "Необходимо загадывать город начиная с указанной буквы!"
-                    }
+                    message: MESSAGES.CITY_ISNT_VALID
                 };
             }
         }

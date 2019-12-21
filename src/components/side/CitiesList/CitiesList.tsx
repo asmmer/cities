@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-
-import { useSelector } from 'react-redux';
-
 import City from '../City/City';
 import CitiesListPlaceholder from '../СitiesListPlaceholder/СitiesListPlaceholder';
+
+import { useSelector } from 'react-redux';
 
 import './CitiesList.scss';
 
@@ -32,8 +31,8 @@ const CitiesList: React.FC = () => {
 								cityName={city}
 								isOpened={!!(openedCity === index + 1)}
 							/>
-						</CSSTransition>
-						)}
+						</CSSTransition>)
+					}
 				</TransitionGroup>
 			</ul> : <CitiesListPlaceholder />
 		}

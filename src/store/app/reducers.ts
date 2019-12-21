@@ -6,13 +6,13 @@ import {
     CLEAR_CITIES,
     SET_OPENED_CITY
 } from "./actions";
-import { Message, MessageType } from "../../helpers/messages";
+import { IMessage, MessageType } from "../../helpers/messages";
 
 interface IInitialState {
     cities: Array<object>;
     resultCities: Array<string>;
     openedCity: null | number;
-    tip: Message;
+    tip: IMessage;
     cityInput: string;
 }
 

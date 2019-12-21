@@ -9,7 +9,7 @@ import Button from '../../basic/Button/Button';
 import Icon from '../../basic/Icons/Icon';
 
 import Input from '../../basic/Input/Input';
-import { MessageType, Message } from '../../../helpers/messages';
+import { MessageType, IMessage } from '../../../helpers/messages';
 
 import './CityInput.scss';
 
@@ -43,7 +43,7 @@ const CityInput: React.FC = () => {
 	}
 
 	const handleRestartClick = (): void => {
-		const message: Message = {
+		const message: IMessage = {
 			type: MessageType.EMPTY,
 			text: ''
 		}
