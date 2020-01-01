@@ -1,6 +1,10 @@
 https://asmmer.github.io/cities
-# Игра “Города”
-Загадайте город первым, а потом продолжайте игру, внося новый город в зависимости от последнего города и последнего символа этого города!
-Есть возможность просмотреть информацию о городе, нажав на соответствующую кнопку.
+# The Game “Cities”
+Guess the city first, and then continue the game, making a new city, depending on the last city and the last symbol of this city! It is possible to view information about the city by clicking on the appropriate button.
 
-Проект написан с использованием `React.js` и `TypeScript`
+P.S - Project made with using Russian cities.
+
+Technology stack:
+- React;
+- Redux;
+- TypeScript.
