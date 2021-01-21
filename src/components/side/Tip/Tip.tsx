@@ -1,19 +1,21 @@
 import React from 'react';
-import { Message, MessageType } from '../../../helpers/messages';
+import { IMessage, MessageType } from '../../../common/interfaces';
 
 import './Tip.scss';
 
 interface ITip {
-    message: Message;
+    message: IMessage;
 }
 
 const Tip: React.FC<ITip> = ({ message }) => {
     const { type, text } = message;
-    const className = `tip-text ${(type === MessageType.ERROR && 'error-type')}`;
+    const computedClass = `tip-text ${(type === MessageType.Error && 'error-type')}`;
 
-    return <h1 className={className}>
-        {text}
-    </h1>
+    return (
+        <h1 className={computedClass}>
+            {text}
+        </h1>
+    )
 }
 
-export default Tip;
+export default React.memo(Tip);

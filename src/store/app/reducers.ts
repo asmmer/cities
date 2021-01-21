@@ -1,27 +1,19 @@
-import IAction from "../interfaces";
-
-import { 
-    CITY_INPUT_TEXT_CHANGE,
-    SET_CITIES, SET_TIP,
-    CLEAR_CITIES,
-    SET_OPENED_CITY
-} from "./actions";
-import { IMessage, MessageType } from "../../helpers/messages";
+import { IAction, ICity, IMessage, MessageType } from "../../common/interfaces";
+import { CITY_ACTION } from "./actions";
 
 interface IInitialState {
-    cities: Array<object>;
-    resultCities: Array<string>;
-    openedCity: null | number;
-    tip: IMessage;
+    cities: ICity[];
+    resultCities: string[];
     cityInput: string;
+    tip: IMessage;
+    openedCity?: number
 }
 
 const initialState: IInitialState = {
-    cities: require(`../../cities/RU.json`),
+    cities: require('../../data/RU.json'),
     resultCities: [],
-    openedCity: null,
     tip: {
-        type: MessageType.EMPTY,
+        type: MessageType.Empty,
         text: ''
     },
     cityInput: ''
@@ -29,32 +21,32 @@ const initialState: IInitialState = {
 
 export const appReducer = (state = initialState, action: IAction) => {
     switch (action.type) {
-        case CITY_INPUT_TEXT_CHANGE: {
+        case CITY_ACTION.CITY_INPUT_TEXT_CHANGE: {
             return {
                 ...state,
                 cityInput: action.payload
             }
         }
-        case SET_CITIES: {
+        case CITY_ACTION.SET_CITIES: {
             return {
                 ...state,
                 resultCities: [...action.payload]
             }
         }
-        case CLEAR_CITIES: {
+        case CITY_ACTION.CLEAR_CITIES: {
             return {
                 ...state,
                 resultCities: [],
                 openedCity: null
             }
         }
-        case SET_OPENED_CITY: {
+        case CITY_ACTION.SET_OPENED_CITY: {
             return {
                 ...state,
                 openedCity: action.payload
             }
         }
-        case SET_TIP: {
+        case CITY_ACTION.SET_TIP: {
             return {
                 ...state,
                 tip: action.payload

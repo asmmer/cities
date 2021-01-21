@@ -1,25 +1,20 @@
-import React, { FormEvent } from 'react';
-
-import CitiesValidation from '../../../helpers/cities-validation';
+import React, { useCallback, FormEvent } from 'react';
+import Button from '../../basic/Button/Button';
+import Icon, { Icons } from '../../basic/Icons/Icon';
+import Input from '../../basic/Input/Input';
+import { IFindCityResult, MessageType } from '../../../common/interfaces';
+import CitiesValidation from '../../../common/citiesValidation';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { cityInputTextChange, setCities, setTip, clearCities } from '../../../store/app/actions';
 
-import Button from '../../basic/Button/Button';
-import Icon from '../../basic/Icons/Icon';
-
-import Input from '../../basic/Input/Input';
-import { MessageType, IMessage } from '../../../helpers/messages';
-
 import './CityInput.scss';
-
-const citiesValidation = new CitiesValidation();
 
 const CityInput: React.FC = () => {
 	const dispatch = useDispatch();
 	const { cityInput, cities, resultCities } = useSelector((state: any) => state.app);
 
-	const handleSubmit = (e: FormEvent) => {
+	const handleSubmit = useCallback((e: FormEvent) => {
 		e.preventDefault();
 
 		const playerCity = cityInput;
@@ -27,11 +22,11 @@ const CityInput: React.FC = () => {
 			return;
 		}
 
-		const result: any = citiesValidation.findCity(playerCity, cities, resultCities);
-		const isSuccessCity: boolean = result.message.type === MessageType.SUCCESS;
+		const result: any = CitiesValidation.findCity(playerCity, cities, resultCities);
+		const isSuccessCity: boolean = result.message.type === MessageType.Success;
 
 		if (isSuccessCity) {
-			const { resultCities, message } = result;
+			const { resultCities, message }: IFindCityResult = result;
 			dispatch(setCities(resultCities));
 			dispatch(setTip(message));
 		} else {
@@ -40,20 +35,17 @@ const CityInput: React.FC = () => {
 		}
 
 		dispatch(cityInputTextChange(''));
-	}
+	}, [cities, cityInput, dispatch, resultCities]);
 
-	const handleRestartClick = (): void => {
-		const message: IMessage = {
-			type: MessageType.EMPTY,
-			text: ''
-		}
-
-		dispatch(setTip(message));
+	const handleRestartClick = useCallback(() => {
+		dispatch(setTip(''));
 		dispatch(clearCities());
 		dispatch(cityInputTextChange(''));
-	};
+	}, [dispatch]);
 
-	const handleTextChange = ({ target }: any) => dispatch(cityInputTextChange(target.value));
+	const handleTextChange = useCallback(({ target }) => {
+		dispatch(cityInputTextChange(target.value));
+	}, [dispatch]);
 
 	return (
 		<form
@@ -65,7 +57,7 @@ const CityInput: React.FC = () => {
 				disabled={!resultCities.length}
 				onClick={handleRestartClick}
 			>
-				<Icon type="restart" />
+				<Icon type={Icons.Restart} />
 			</Button>
 			<Input
 				value={cityInput}
@@ -76,7 +68,7 @@ const CityInput: React.FC = () => {
 				type="submit"
 				disabled={!cityInput}
 			>
-				<Icon type="done" />
+				<Icon type={Icons.Done} />
 			</Button>
 		</form>
 	);
